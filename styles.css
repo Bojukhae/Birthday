@@ -1,0 +1,233 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(to top,rgb(250, 206, 243), rgb(226, 91, 215),rgb(250, 206, 243));
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    background-image: linear-gradient(to right, rgb(245, 198, 231),rgb(181, 170, 231));
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    size: 100%;
+    max-width: 900px;
+}
+
+h1 {
+    background-image: linear-gradient(to right, rgb(241, 76, 192),rgb(0, 0, 0));
+    color: transparent;
+    background-clip: text;
+    font-size: 2.7em;
+}
+h4 {
+    font-size: 1.5em;
+    color: #550620;
+    margin-bottom: 20px;
+}
+
+.birthday-card {
+    background-color: #ffebee;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.message {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+.gift-box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #ee84d4;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 5%;
+}
+
+.gift-box .lid {
+    position: relative;
+    top: 0;
+    left: -10px;
+    width: 120px;
+    height: 25px;
+    background-color: #ee84d4;
+    transition: transform 0.5s ease;
+    box-shadow: #333 0 5px 5px;
+    border-radius: 5%;
+}
+
+.gift-box .lid.fly {
+    animation: flyLid 1.5s forwards;
+}
+
+@keyframes flyLid {
+    0% {
+        transform: rotateX(0);
+    }
+    20% {
+        transform: translateY(-30px);
+    }
+    66%{
+        transform: rotateZ(70deg) translateX(-50px) translateY(-50px);
+    }
+    100% {
+        transform: rotateZ(180deg) translateX(-130px) translateY(-80px);
+    }
+}
+
+.gift-box .lid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 100%;
+    background-color: #f83d94;
+    transform: translateX(-50%);
+}
+
+.gift-box .lid::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #f83d94;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gift-box .lid .bow-tie {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 60px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+}
+
+.gift-box .lid .bow-tie::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(
+        circle at center,
+        transparent 30%,
+        #f83d94 30% 
+    );
+    border-radius: 50%;
+    transform: rotate(45deg) skew(20deg); 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+}
+
+
+.gift-box .lid .bow-tie::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(
+        circle at center,
+        transparent 30%, 
+        #f83d94 30% 
+    );
+    border-radius: 50%;
+    transform: rotate(-45deg) skew(-20deg);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.gift-box .lid .bow-tie .knot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: #f83d94;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.gift-box .tie {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 20px;
+    height: 80px;
+    background-color: #f83d94;
+    transform: translateX(-50%);
+}
+
+.gift-box .box {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #ee84d4;
+    border-radius: 5%;
+}
+
+#messageContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#giftMessage {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    opacity: 0;
+    animation: riseUp 2s ease-in-out forwards;
+}
+@keyframes riseUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+    30% {
+        opacity: 0.2;
+        transform: translate(-50%, -50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 200px);
+    }
+}
+
+.hidden {
+    display: none;
+}
