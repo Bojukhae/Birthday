@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 18th Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday!</h1>
+        <div class="gift-box" onclick="openGift()">
+            <div class="lid">
+                <div class="bow-tie">
+                    <div class="knot"></div>
+                    <div class="tail"></div>
+                </div>
+            </div>
+            <div class="box"></div>
+            <div class="tie"></div>
+        </div>
+        <div id="messageContainer" class="hidden">
+            <p id="giftMessage">So… I heard someone special is turning 18 today… Oh wait, that’s you!<br> 
+                Happy birthday, Suvd! Hope your day is filled with fun, laughter,<br> 
+                and maybe even a surprise! 😉</p>
+        </div>
+        
+    </div>
+
+    <script>
+        function displayMessage() {
+            const message = document.getElementById('birthdayMessage').value;
+            const displayElement = document.getElementById('displayMessage');
+            displayElement.textContent = message;
+            displayElement.classList.remove('hidden');
+        }
+        function openGift() {
+            const lid = document.querySelector('.gift-box .lid');
+            lid.classList.add('fly');
+    
+        const messageContainer = document.getElementById('messageContainer');
+        messageContainer.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
